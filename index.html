@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>La Barraca - Restaurante Familiar</title>
+    <meta name="description" content="La Barraca, restaurante familiar con más de 15 años de experiencia en San José, Entre Ríos. Comida casera, opciones para celíacos, vegetarianos y veganos.">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+    <style>
+      body {
+        padding-top: 56px; /* Altura estándar de navbar */
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+      }
+      
+      main {
+        flex: 1;
+      }
+      
+      .navbar-brand {
+        font-weight: bold;
+        font-size: 1.5rem;
+      }
+      
+      .about-section {
+        background-color: #f8f9fa;
+        padding: 2rem 0;
+        border-radius: 8px;
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+      }
+      
+      .about-text {
+        line-height: 1.8;
+        font-size: 1.1rem;
+        font-family:cursive;
+      }
+      
+      .carousel-container {
+        max-width: 600px;
+        margin: 0 auto 2rem auto;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        border-radius: 8px;
+        overflow: hidden;
+      }
+      
+      .carousel-item img {
+        height: 400px;
+        object-fit: cover;
+      }
+      
+      footer {
+        background-color: #212529;
+        color: white;
+        padding: 1rem 0;
+        margin-top: auto;
+      }
+      
+      @media (max-width: 768px) {
+        .carousel-item img {
+          height: 300px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="./index.html">La Barraca</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasNavbarLabel">La Barraca</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="./index.html">Quienes somos?</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#seccion-destino">Contacto</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Fotos
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="./platos.html">Algunos platos</a></li>
+                  <li><a class="dropdown-item" href="nuestro-salon.html">Nuestro salón</a></li>
+                  
+                  <li>
+                    <hr class="dropdown-divider">
+                  </li>
+                  <li><a class="dropdown-item" href="#">Reseñas</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </nav>
+    
+    <main>
+      <!-- Sección Quienes Somos -->
+      <section class="about-section">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <h1 class="text-center mb-4">Quienes Somos?</h1>
+              <div class="about-text">
+                <p>Somos una familia de emprendedores gastronómicos que trabaja hace más de 15 años en la ciudad de San José.</p>
+                <p>Nos esmeramos día a día por brindar el mejor servicio tanto a la ciudad como a los turistas que eligen el departamento Colón para vacacionar o aquel que anda de paso.</p>
+                <p>Nos destacamos por nuestra comida casera y por ser un lugar ameno para disfrutar en familia.</p>
+                <p>Disponemos de un amplio salón para recibir contingentes, tanto estudiantiles como adultos. Contamos con un menú muy variado, pizzas, pastas, minutas, empanadas, sándwiches y los especiales de la casa. Contemplando siempre menú celiaco, vegetariano, vegano.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+  
+      <!-- Carousel de imágenes -->
+      <section>
+        <div class="container">
+          <h2 class="text-center mb-4"></h2>
+          <div class="carousel-container">
+            <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <img src="./Imagenes/WhatsApp Image 2025-04-24 at 20.35.48.jpeg" class="d-block w-100" alt="Vista del local">
+                  <div class="carousel-caption d-none d-md-block">
+                    <h5>Nuestro Local</h5>
+                    <p>Un ambiente cálido y acogedor</p>
+                  </div>
+                </div>
+                <div class="carousel-item">
+                  <img src="./Imagenes/WhatsApp Image 2025-04-24 at 20.37.11 (1).jpeg" class="d-block w-100" alt="Plato Marinera">
+                  <div class="carousel-caption d-none d-md-block">
+                    <h5>Marineras</h5>
+                    <p>Especialidad de la casa</p>
+                  </div>
+                </div>
+                <div class="carousel-item">
+                  <img src="./Imagenes/WhatsApp Image 2025-04-24 at 20.37.13 (1).jpeg" class="d-block w-100" alt="Ravioles caseros">
+                  <div class="carousel-caption d-none d-md-block">
+                    <h5>Ravioles Caseros</h5>
+                    <p>Pastas elaboradas artesanalmente</p>
+                  </div>
+                </div>
+              </div>
+              <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Anterior</span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Siguiente</span>
+              </button>
+              <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleFade" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleFade" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleFade" data-bs-slide-to="2" aria-label="Slide 3"></button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      <!-- Sección Botones contacto -->
+      <section class="py-5 bg-light">
+        <div id="seccion-destino" class="container text-center">
+          <h2>Vení a visitarnos o realiza tu pedido</h2>
+          <p class="lead">Contacto</p>
+          <div class="mt-4">
+            <a href="https://wa.me/c/5493447513979" class="btn btn-primary me-2">WhatsApp</a>
+            <a href="https://www.instagram.com/__labarraca__?igsh=amgxaDhpc212dWlw" class="btn btn-outline-dark">Instagram</a>
+          </div>
+        </div>
+      </section>
+    </main>
+    
+    <!-- Footer -->
+    <footer class="text-center py-3">
+      <div class="container">
+        <p class="mb-1">Ruta Nacional Nº14 - KM156 - San José - Entre Ríos</p>
+        <p class="mb-0">© 2025 La Barraca - Todos los derechos reservados</p>
+      </div>
+    </footer>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
+  </body>
+</html>
