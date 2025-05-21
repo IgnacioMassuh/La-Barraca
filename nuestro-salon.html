@@ -3,155 +3,838 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>La Barraca</title>
+    <title>La Barraca - Nuestro Salón</title>
+    <meta name="description" content="Conoce nuestro acogedor salón en La Barraca, restaurante familiar con más de 15 años de experiencia en San José, Entre Ríos.">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+    <!-- Añadimos Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Añadimos iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
+      :root {
+        --primary-color: #E57373; /* Tono rojizo para restaurante */
+        --secondary-color: #4CAF50; /* Verde complementario */
+        --text-color: #333333;
+        --light-bg: #F9F5F1; /* Fondo cálido */
+        --dark-bg: #2E2E2E;
+        --accent-color: #FFD54F; /* Amarillo acento */
+      }
+      
       body {
-        padding-top: 60px; /* Espacio para el navbar fijo */
+        padding-top: 76px; /* Altura navbar más grande */
         display: flex;
         flex-direction: column;
-        min-height: 100vh; /* Asegura que el cuerpo ocupe al menos toda la altura de la ventana */
+        min-height: 100vh;
+        font-family: 'Poppins', sans-serif;
+        color: var(--text-color);
+        background-color: #fff;
       }
+      
       main {
-        flex: 1; /* Permite que el contenido principal ocupe el espacio disponible */
+        flex: 1;
       }
+      
+      h1, h2, h3, h4, h5 {
+        font-family: 'Playfair Display', serif;
+      }
+      
+      /* Navbar mejorado */
+      .navbar {
+        background-color: #fff !important;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        padding: 15px 0;
+      }
+      
       .navbar-brand {
-        font-weight: bold;
-        font-size: 1.5rem;
+        font-family: 'Playfair Display', serif;
+        font-weight: 700;
+        font-size: 1.8rem;
+        color: var(--primary-color) !important;
       }
-      footer {
-        margin-top: auto; /* Empuja el footer hacia abajo */
-        background-color: black;
+      
+      .nav-link {
+        font-weight: 500;
+        text-transform: uppercase;
+        font-size: 0.9rem;
+        letter-spacing: 0.5px;
+        margin: 0 5px;
+        color: var(--text-color) !important;
+        transition: all 0.3s ease;
+      }
+      
+      .nav-link:hover {
+        color: var(--primary-color) !important;
+      }
+      
+      .active {
+        color: var(--primary-color) !important;
+      }
+      
+      /* Hero section para el salón */
+      .hero-section {
+        position: relative;
+        height: 350px;
+        background-image: url('./Imagenes/WhatsApp Image 2025-04-24 at 20.35.50.jpeg');
+        background-size: cover;
+        background-position: center;
+        margin-bottom: 3rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         color: white;
-        padding: 10px 0;
         text-align: center;
       }
-      /* Estilos para tarjetas de igual tamaño */
-      .card {
+      
+      .hero-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
         height: 100%;
-        transition: transform 0.3s;
+        background: rgba(0,0,0,0.6);
       }
+      
+      .hero-content {
+        position: relative;
+        z-index: 1;
+        max-width: 800px;
+        padding: 2rem;
+      }
+      
+      .hero-title {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+      }
+      
+      .hero-subtitle {
+        font-size: 1.3rem;
+        margin-bottom: 2rem;
+        font-weight: 300;
+      }
+      
+      /* Galería de tarjetas mejorada */
+      .gallery-section {
+        padding: 4rem 0;
+        background-color: var(--light-bg);
+        position: relative;
+      }
+      
+      .gallery-section::before {
+        content: '';
+        position: absolute;
+        top: -50px;
+        right: -50px;
+        width: 200px;
+        height: 200px;
+        background-color: rgba(229, 115, 115, 0.1);
+        border-radius: 50%;
+        z-index: 0;
+      }
+      
+      .section-title {
+        position: relative;
+        display: inline-block;
+        margin-bottom: 2.5rem;
+        font-weight: 700;
+        color: var(--text-color);
+        font-size: 2.5rem;
+      }
+      
+      .section-title::after {
+        content: '';
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 3px;
+        background-color: var(--primary-color);
+      }
+      
+      .section-subtitle {
+        max-width: 700px;
+        margin: 0 auto 3rem;
+        text-align: center;
+        color: #666;
+        font-size: 1.1rem;
+        line-height: 1.7;
+      }
+      
+      /* Tarjetas mejoradas */
+      .card {
+        border: none;
+        height: 100%;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        transition: all 0.4s ease;
+        cursor: pointer; /* Nuevo: cursor para indicar que es clickeable */
+      }
+      
       .card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        transform: translateY(-10px);
+        box-shadow: 0 15px 30px rgba(0,0,0,0.15);
       }
+      
       .card-img-container {
-        height: 200px; /* Altura fija para todas las imágenes */
+        height: 250px;
         overflow: hidden;
       }
+      
       .card-img-top {
         width: 100%;
         height: 100%;
-        object-fit: cover; /* Mantiene la proporción y cubre el contenedor */
+        object-fit: cover;
+        transition: transform 0.8s ease;
       }
+      
+      .card:hover .card-img-top {
+        transform: scale(1.05);
+      }
+      
+      .card-body {
+        padding: 1.5rem;
+        background-color: #fff;
+      }
+      
+      .card-title {
+        color: var(--primary-color);
+        font-weight: 600;
+        margin-bottom: 1rem;
+        font-size: 1.3rem;
+      }
+      
+      .card-text {
+        color: #666;
+        line-height: 1.6;
+      }
+      
       .card-container {
-        max-width: 300px; /* Ancho máximo para las tarjetas */
-        margin: 0 auto; /* Centra las tarjetas en su columna */
+        max-width: 350px;
+        margin: 0 auto;
+      }
+      
+      /* Nuevo: Estilos para el indicador de más imágenes */
+      .view-more-badge {
+        position: absolute;
+        bottom: 10px;
+        right: 10px;
+        background-color: var(--primary-color);
+        color: white;
+        border-radius: 50px;
+        padding: 5px 12px;
+        font-size: 0.8rem;
+        z-index: 2;
+        opacity: 0.9;
+        transition: all 0.3s ease;
+      }
+      
+      .card:hover .view-more-badge {
+        opacity: 1;
+        transform: scale(1.05);
+      }
+      
+      /* Nuevo: Estilo para el modal */
+      .gallery-modal .modal-header {
+        border-bottom: none;
+        padding-bottom: 0;
+      }
+      
+      .gallery-modal .modal-title {
+        font-family: 'Playfair Display', serif;
+        color: var(--primary-color);
+        font-weight: 600;
+      }
+      
+      .gallery-modal .modal-content {
+        border-radius: 15px;
+        border: none;
+        box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+      }
+      
+      .gallery-modal .modal-footer {
+        border-top: none;
+      }
+      
+      /* Nuevo: Estilo para el carrusel */
+      .carousel-inner {
+        border-radius: 10px;
+        overflow: hidden;
+      }
+      
+      .carousel-item img {
+        height: 400px;
+        object-fit: cover;
+        width: 100%;
+      }
+      
+      .carousel-caption {
+        background-color: rgba(0,0,0,0.6);
+        border-radius: 10px;
+        padding: 10px;
+        bottom: 20px;
+      }
+      
+      .carousel-control-prev,
+      .carousel-control-next {
+        width: 10%;
+        opacity: 0.8;
+      }
+      
+      .carousel-indicators {
+        margin-bottom: 0;
+      }
+      
+      /* Sección contacto mejorada */
+      .contact-section {
+        padding: 4rem 0;
+        background: linear-gradient(to right, var(--light-bg), #fff);
+        position: relative;
+      }
+      
+      .contact-section::before {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23e57373' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
+        opacity: 0.5;
+      }
+      
+      .contact-content {
+        position: relative;
+        z-index: 1;
+      }
+      
+      .contact-title {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+        color: var(--text-color);
+      }
+      
+      .contact-subtitle {
+        font-size: 1.2rem;
+        margin-bottom: 2rem;
+        color: #666;
+      }
+      
+      .social-button {
+        padding: 12px 24px;
+        border-radius: 50px;
+        margin: 0 10px;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        display: inline-flex;
+        align-items: center;
+      }
+      
+      .btn-whatsapp {
+        background-color: #25D366;
+        color: white;
+      }
+      
+      .btn-whatsapp:hover {
+        background-color: #128C7E;
+        color: white;
+        transform: translateY(-3px);
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      }
+      
+      .btn-instagram {
+        background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+        color: white;
+      }
+      
+      .btn-instagram:hover {
+        opacity: 0.9;
+        color: white;
+        transform: translateY(-3px);
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      }
+      
+      .icon-left {
+        margin-right: 8px;
+      }
+      
+      /* Footer mejorado */
+      footer {
+        background-color: var(--dark-bg);
+        color: white;
+        padding: 2rem 0 1rem;
+      }
+      
+      .footer-info {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 1.5rem;
+      }
+      
+      .footer-logo {
+        font-family: 'Playfair Display', serif;
+        font-weight: 700;
+        font-size: 1.8rem;
+        color: white;
+        margin-right: 1rem;
+      }
+      
+      .footer-address {
+        font-size: 1rem;
+        opacity: 0.8;
+      }
+      
+      .footer-divider {
+        width: 80%;
+        margin: 1rem auto;
+        border-color: rgba(255,255,255,0.1);
+      }
+      
+      .footer-copyright {
+        opacity: 0.7;
+        font-size: 0.9rem;
+      }
+      
+      /* Responsive */
+      @media (max-width: 992px) {
+        .hero-title {
+          font-size: 2.5rem;
+        }
+        
+        .hero-subtitle {
+          font-size: 1.2rem;
+        }
+        
+        .carousel-item img {
+          height: 350px;
+        }
+      }
+      
+      @media (max-width: 768px) {
+        .hero-section {
+          height: 300px;
+        }
+        
+        .hero-title {
+          font-size: 2rem;
+        }
+        
+        .social-button {
+          margin: 5px;
+        }
+        
+        .card-container {
+          max-width: 300px;
+        }
+        
+        .carousel-item img {
+          height: 300px;
+        }
+      }
+      
+      @media (max-width: 576px) {
+        .hero-section {
+          height: 250px;
+        }
+        
+        .hero-title {
+          font-size: 1.8rem;
+        }
+        
+        .hero-subtitle {
+          font-size: 1rem;
+        }
+        
+        .carousel-item img {
+          height: 250px;
+        }
+        
+        .view-more-badge {
+          font-size: 0.7rem;
+          padding: 4px 8px;
+        }
       }
     </style>
   </head>
   <body>
+    <!-- Navbar -->
     <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="./index.html">La Barraca</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasNavbarLabel">La Barraca</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+              <li class="nav-item">
+                <a class="nav-link" href="./index.html">Quienes somos</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#contacto">Contacto</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Galería
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="./platos.html">Nuestros platos</a></li>
+                  <li><a class="dropdown-item active" href="nuestro-salon.html">Nuestro salón</a></li>
+                  <li>
+                    <hr class="dropdown-divider">
+                  </li>
+                  <li><a class="dropdown-item" href="#">Reseñas</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </nav>
+    
+    <main>
+      <!-- Hero Section -->
+      <section class="hero-section">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+          <h1 class="hero-title">Nuestro Salón</h1>
+          <p class="hero-subtitle">Un espacio cálido para compartir momentos especiales</p>
+        </div>
+      </section>
+      
+      <!-- Sección Galería de Fotos -->
+      <section class="gallery-section">
         <div class="container">
-          <a class="navbar-brand" href="./index.html">La Barraca</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
-            <div class="offcanvas-header">
-              <h5 class="offcanvas-title" id="offcanvasNavbarLabel">La Barraca</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+          <div class="row">
+            <div class="col-12 text-center">
+              <h2 class="section-title">Conoce Nuestro Espacio</h2>
+              <p class="section-subtitle">Disfruta de un ambiente acogedor diseñado para compartir los mejores momentos en familia o con amigos. Nuestro salón está preparado para recibir contingentes, reuniones y celebraciones especiales.</p>
             </div>
-            <div class="offcanvas-body">
-              <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-                <li class="nav-item">
-                  <a class="nav-link active" aria-current="page" href="./index.html">Quienes somos?</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#seccion-destino">Contacto</a>
-                </li>
-                <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Fotos
-                  </a>
-                  <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="./platos.html">Algunos platos</a></li>
-                    <li><a class="dropdown-item" href="nuestro-salon.html">Nuestro salón</a></li>
-                    
-                    <li>
-                      <hr class="dropdown-divider">
-                    </li>
-                    <li><a class="dropdown-item" href="#">Reseñas</a></li>
-                  </ul>
-                </li>
-              </ul>
+          </div>
+          
+          <div class="row">
+            <!-- Primera tarjeta -->
+            <div class="col-sm-12 col-md-6 col-lg-4 mb-4">
+              <div class="card-container">
+                <div class="card" data-bs-toggle="modal" data-bs-target="#salonPrincipalModal">
+                  <div class="card-img-container position-relative">
+                    <img src="./Imagenes/WhatsApp Image 2025-04-24 at 20.35.50.jpeg" class="card-img-top" alt="Vista del salón principal">
+                    <span class="view-more-badge">
+                      <i class="fas fa-images"></i> Ver más
+                    </span>
+                  </div>
+                  <div class="card-body">
+                    <h5 class="card-title">Salón Principal</h5>
+                    <p class="card-text">Un ambiente espacioso y confortable para disfrutar con amigos o en familia.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Segunda tarjeta -->
+            <div class="col-sm-12 col-md-6 col-lg-4 mb-4">
+              <div class="card-container">
+                <div class="card" data-bs-toggle="modal" data-bs-target="#galeriaModal">
+                  <div class="card-img-container position-relative">
+                    <img src="./Imagenes/WhatsApp Image 2025-04-24 at 20.35.46.jpeg" class="card-img-top" alt="Área de mesas familiares">
+                    <span class="view-more-badge">
+                      <i class="fas fa-images"></i> Ver más
+                    </span>
+                  </div>
+                  <div class="card-body">
+                    <h5 class="card-title">Galería</h5>
+                    <p class="card-text">Ideal para pasar un rato al aire libre.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Tercera tarjeta -->
+            <div class="col-sm-12 col-md-6 col-lg-4 mb-4">
+              <div class="card-container">
+                <div class="card" data-bs-toggle="modal" data-bs-target="#detallesModal">
+                  <div class="card-img-container position-relative">
+                    <img src="./Imagenes/WhatsApp Image 2025-04-24 at 20.37.12.jpeg" class="card-img-top" alt="Detalle de decoración del salón">
+                    <span class="view-more-badge">
+                      <i class="fas fa-images"></i> Ver más
+                    </span>
+                  </div>
+                  <div class="card-body">
+                    <h5 class="card-title">********</h5>
+                    <p class="card-text">*******************</p>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      </nav>
+      </section>
       
-      
-      <main>
-        <section id="speakers" class="mt-5 mb-4">
-          <div class="container">
-              <div class="row mb-4">
-                  <div class="col text-center text-uppercase">
-                      <h3>Nuestro Salón</h3>
-                  </div>
-              </div>
-              
-              <div class="row justify-content-center">
-                  <!-- Primera tarjeta -->
-                  <div class="col-sm-12 col-md-6 col-lg-4 mb-4">
-                    <div class="card-container">
-                      <div class="card">
-                          <div class="card-img-container">
-                            <img src="./Imagenes/WhatsApp Image 2025-04-24 at 20.35.50.jpeg" class="card-img-top" alt="imagen">
-                          </div>
-                          <div class="card-body">
-                              <h5 class="card-title">---------*-*-*-</h5>
-                              <p class="card-text">mfklandflhjadh</p>
-                          </div>
-                      </div>
-                    </div>
-                  </div>
-                  
-                  <!-- Segunda tarjeta -->
-                  <div class="col-sm-12 col-md-6 col-lg-4 mb-4">
-                    <div class="card-container">
-                      <div class="card">
-                          <div class="card-img-container">
-                            <img src="./Imagenes/WhatsApp Image 2025-04-24 at 20.35.46.jpeg" class="card-img-top" alt="imagen">
-                          </div>
-                          <div class="card-body">
-                              <h5 class="card-title">---------*-*-*-</h5>
-                              <p class="card-text">mfklandflhjadh</p>
-                          </div>
-                      </div>
-                    </div>
-                  </div>
-                  
-                  <!-- Tercera tarjeta -->
-                  <div class="col-sm-12 col-md-6 col-lg-4 mb-4">
-                    <div class="card-container">
-                      <div class="card">
-                          <div class="card-img-container">
-                            <img src="./Imagenes/WhatsApp Image 2025-04-24 at 20.37.12.jpeg" class="card-img-top" alt="imagen">
-                          </div>
-                          <div class="card-body">
-                              <h5 class="card-title">---------*-*-*-</h5>
-                              <p class="card-text">mfklandflhjadh</p>
-                          </div>
-                      </div>
-                    </div>
-                  </div>
-              </div>
+      <!-- Sección Contacto -->
+      <section id="contacto" class="contact-section">
+        <div class="container contact-content">
+          <div class="text-center">
+            <h2 class="contact-title">Reserva tu mesa o evento especial</h2>
+            <p class="contact-subtitle">Estamos disponibles para grupos, celebraciones y contingentes</p>
+            <div class="mt-4">
+              <a href="https://wa.me/c/5493447513979" class="btn social-button btn-whatsapp">
+                <i class="fab fa-whatsapp icon-left"></i> Consultar disponibilidad
+              </a>
+              <a href="https://www.instagram.com/__labarraca__?igsh=amgxaDhpc212dWlw" class="btn social-button btn-instagram">
+                <i class="fab fa-instagram icon-left"></i> Seguinos en Instagram
+              </a>
+            </div>
           </div>
-        </section>
-      </main>
-      
-      <footer>Ruta Nacional Nº14 - KM156 - San José - Entre Ríos</footer>
-      
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
-  </body>
+        </div>
+      </section>
+    </main>
+    
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <div class="footer-info">
+          <div class="footer-logo">La Barraca</div>
+          <div class="footer-address">Ruta Nacional Nº14 - KM156 - San José - Entre Ríos</div>
+        </div>
+        <hr class="footer-divider">
+        <p class="footer-copyright text-center">© 2025 La Barraca - Todos los derechos reservados</p>
+      </div>
+    </footer>
+    
+    <!-- Modales para las galerías -->
+    
+    <!-- Modal para Salón Principal -->
+    <div class="modal fade gallery-modal" id="salonPrincipalModal" tabindex="-1" aria-labelledby="salonPrincipalModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="salonPrincipalModalLabel">Salón Principal</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <!-- Carrusel para Salón Principal -->
+            <div id="salonPrincipalCarousel" class="carousel slide" data-bs-ride="carousel">
+              <div class="carousel-indicators">
+                <button type="button" data-bs-target="#salonPrincipalCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#salonPrincipalCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#salonPrincipalCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                <button type="button" data-bs-target="#salonPrincipalCarousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
+              </div>
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <img src="./Imagenes/WhatsApp Image 2025-04-24 at 20.35.50.jpeg" class="d-block w-100" alt="Salón principal vista 1">
+                  <div class="carousel-caption d-none d-md-block">
+                    <h5>Área Principal</h5>
+                    <p>Vista general de nuestro salón principal</p>
+                  </div>
+                </div>
+                <div class="carousel-item">
+                  <img src="./Imagenes/WhatsApp Image 2025-04-24 at 20.38.35.jpeg" class="d-block w-100" alt="Salón principal vista 2">
+                  <div class="carousel-caption d-none d-md-block">
+                    <h5>Amplio Salón</h5>
+                    <p>Perfecto para grupos grandes</p>
+                  </div>
+                </div>
+                <div class="carousel-item">
+                  <img src="./Imagenes/WhatsApp Image 2025-04-24 at 20.35.54 (2).jpeg" class="d-block w-100" alt="Salón principal vista 3">
+                  <div class="carousel-caption d-none d-md-block">
+                    <h5>*******</h5>
+                    <p>*************</p>
+                  </div>
+                </div>
+                <div class="carousel-item">
+                  <img src="./Imagenes/WhatsApp Image 2025-04-24 at 20.35.50.jpeg" class="d-block w-100" alt="Salón principal vista 4">
+                  <div class="carousel-caption d-none d-md-block">
+                    <h5>----------</h5>
+                    <p>---------------------</p>
+                  </div>
+                </div>
+              </div>
+              <button class="carousel-control-prev" type="button" data-bs-target="#salonPrincipalCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Anterior</span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#salonPrincipalCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Siguiente</span>
+              </button>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Modal para Galería -->
+    <div class="modal fade gallery-modal" id="galeriaModal" tabindex="-1" aria-labelledby="galeriaModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="galeriaModalLabel">Nuestra Galería</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <!-- Carrusel para Galería -->
+            <div id="galeriaCarousel" class="carousel slide" data-bs-ride="carousel">
+              <div class="carousel-indicators">
+                <button type="button" data-bs-target="#galeriaCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#galeriaCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#galeriaCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                <button type="button" data-bs-target="#galeriaCarousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
+              </div>
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <img src="./Imagenes/WhatsApp Image 2025-04-24 at 20.35.46 (1).jpeg" class="d-block w-100" alt="Galería vista 1">
+                  <div class="carousel-caption d-none d-md-block">
+                    <h5>Espacio al Aire Libre</h5>
+                    <p>........... </p>
+                  </div>
+                </div>
+                <div class="carousel-item">
+                  <img src="./Imagenes/WhatsApp Image 2025-04-24 at 20.35.48.jpeg" class="d-block w-100" alt="Galería vista 2">
+                  <div class="carousel-caption d-none d-md-block">
+                    <h5>++++++++++++++</h5>
+                    <p>++++++++++++++++++</p>
+                  </div>
+                </div>
+                <div class="carousel-item">
+                  <img src="./Imagenes/WhatsApp Image 2025-04-24 at 20.35.48 (2).jpeg" class="d-block w-100" alt="Galería vista 3">
+                  <div class="carousel-caption d-none d-md-block">
+                    <h5>................</h5>
+                    <p>.......................</p>
+                  </div>
+                </div>
+                <div class="carousel-item">
+                  <img src="./Imagenes/WhatsApp Image 2025-04-24 at 20.35.46.jpeg" class="d-block w-100" alt="Galería vista 4">
+                  <div class="carousel-caption d-none d-md-block">
+                    <h5>000000000000000000</h5>
+                    <p>000000000000000000000000000</p>
+                  </div>
+                </div>
+              </div>
+              <button class="carousel-control-prev" type="button" data-bs-target="#galeriaCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Anterior</span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#galeriaCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Siguiente</span>
+              </button>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Modal para Detalles y Ambiente -->
+    <div class="modal fade gallery-modal" id="detallesModal" tabindex="-1" aria-labelledby="detallesModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="detallesModalLabel">Detalles y Ambiente</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <!-- Carrusel para Detalles -->
+            <div id="detallesCarousel" class="carousel slide" data-bs-ride="carousel">
+              <div class="carousel-indicators">
+                <button type="button" data-bs-target="#detallesCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#detallesCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#detallesCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                <button type="button" data-bs-target="#detallesCarousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
+              </div>
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <img src="./Imagenes/WhatsApp Image 2025-05-21 at 20.36.02.jpeg" class="d-block w-100" alt="Detalle decoración 1">
+                  <div class="carousel-caption d-none d-md-block">
+                    <h5></h5>
+                    <p></p>
+                  </div>
+                </div>
+                <div class="carousel-item">
+                  <img src="./Imagenes/WhatsApp Image 2025-04-24 at 20.37.12.jpeg" class="d-block w-100" alt="Detalle decoración 2">
+                  <div class="carousel-caption d-none d-md-block">
+                    <h5></h5>
+                    <p></p>
+                  </div>
+                </div>
+                <div class="carousel-item">
+                  <img src="./Imagenes/WhatsApp Image 2025-04-24 at 20.37.12.jpeg" class="d-block w-100" alt="Detalle decoración 3">
+                  <div class="carousel-caption d-none d-md-block">
+                    <h5></h5>
+                    <p></p>
+                  </div>
+                </div>
+                <div class="carousel-item">
+                  <img src="./Imagenes/WhatsApp Image 2025-04-24 at 20.37.12.jpeg" class="d-block w-100" alt="Detalle decoración 4">
+                  <div class="carousel-caption d-none d-md-block">
+                    <h5></h5>
+                    <p></p>
+                  </div>
+                </div>
+              </div>
+              <button class="carousel-control-prev" type="button" data-bs-target="#detallesCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Anterior</span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#detallesCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Siguiente</span>
+              </button>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
+    
+    <!-- Script para habilitar los carruseles en los modales -->
+    <script>
+      // Detiene la reproducción automática de los carruseles cuando se cierra el modal
+      document.addEventListener('DOMContentLoaded', function() {
+        var myModalEls = document.querySelectorAll('.gallery-modal');
+        myModalEls.forEach(function(myModalEl) {
+          myModalEl.addEventListener('hidden.bs.modal', function() {
+            // Obtiene el ID del carrusel dentro del modal
+            var carouselId = myModalEl.querySelector('.carousel').id;
+            var carouselInstance = bootstrap.Carousel.getInstance(document.getElementById(carouselId));
+            if (carouselInstance) {
+              carouselInstance.pause();
+            }
+          });
+          
+          // Reinicia el carrusel cuando se abre el modal
+          myModalEl.addEventListener('shown.bs.modal', function() {
+            var carouselId = myModalEl.querySelector('.carousel').id;
+            var carousel = document.getElementById(carouselId);
+            var items = carousel.querySelectorAll('.carousel-item');
+            items.forEach(function(item, idx) {
+              if (idx === 0) {
+                item.classList.add('active');
+              } else {
+                item.classList.remove('active');
+              }
+            });
+          });
+        });
+      });
+    </script>
+    
 </html>

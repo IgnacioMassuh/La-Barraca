@@ -3,54 +3,390 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>La Barraca</title>
+    <title>Nuestros Platos - La Barraca</title>
+    <meta name="description" content="Descubre nuestra variedad de deliciosos platos en La Barraca, restaurante familiar con más de 15 años de experiencia en San José, Entre Ríos.">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+    <!-- Añadimos Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Añadimos iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
+      :root {
+        --primary-color: #E57373; /* Tono rojizo para restaurante */
+        --secondary-color: #4CAF50; /* Verde complementario */
+        --text-color: #333333;
+        --light-bg: #F9F5F1; /* Fondo cálido */
+        --dark-bg: #2E2E2E;
+        --accent-color: #FFD54F; /* Amarillo acento */
+      }
+      
       body {
-        padding-top: 60px; /* Espacio para el navbar fijo */
+        padding-top: 76px; /* Altura navbar más grande */
         display: flex;
         flex-direction: column;
-        min-height: 100vh; /* Asegura que el cuerpo ocupe al menos toda la altura de la ventana */
+        min-height: 100vh;
+        font-family: 'Poppins', sans-serif;
+        color: var(--text-color);
+        background-color: #fff;
       }
+      
       main {
-        flex: 1; /* Permite que el contenido principal ocupe el espacio disponible */
+        flex: 1;
       }
+      
+      h1, h2, h3, h4, h5 {
+        font-family: 'Playfair Display', serif;
+      }
+      
+      /* Navbar mejorado */
+      .navbar {
+        background-color: #fff !important;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        padding: 15px 0;
+      }
+      
       .navbar-brand {
-        font-weight: bold;
-        font-size: 1.5rem;
+        font-family: 'Playfair Display', serif;
+        font-weight: 700;
+        font-size: 1.8rem;
+        color: var(--primary-color) !important;
       }
-      footer {
-        margin-top: auto; /* Empuja el footer hacia abajo */
-        background-color: black;
+      
+      .nav-link {
+        font-weight: 500;
+        text-transform: uppercase;
+        font-size: 0.9rem;
+        letter-spacing: 0.5px;
+        margin: 0 5px;
+        color: var(--text-color) !important;
+        transition: all 0.3s ease;
+      }
+      
+      .nav-link:hover {
+        color: var(--primary-color) !important;
+      }
+      
+      .active {
+        color: var(--primary-color) !important;
+      }
+      
+      /* Hero section para los platos */
+      .hero-section {
+        position: relative;
+        height: 350px;
+        background-image: url('./Imagenes/WhatsApp Image 2025-04-24 at 20.35.46.jpeg');
+        background-size: cover;
+        background-position: center;
+        margin-bottom: 3rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         color: white;
-        padding: 10px 0;
         text-align: center;
       }
-      /* Estilos para tarjetas de igual tamaño */
-      .card {
+      
+      .hero-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
         height: 100%;
-        transition: transform 0.3s;
+        background: rgba(0,0,0,0.6);
       }
+      
+      .hero-content {
+        position: relative;
+        z-index: 1;
+        max-width: 800px;
+        padding: 2rem;
+      }
+      
+      .hero-title {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+      }
+      
+      .hero-subtitle {
+        font-size: 1.3rem;
+        margin-bottom: 2rem;
+        font-weight: 300;
+      }
+      
+      /* Sección de platos mejorada */
+      .platos-section {
+        padding: 4rem 0;
+        background-color: var(--light-bg);
+        position: relative;
+      }
+      
+      .platos-section::before {
+        content: '';
+        position: absolute;
+        top: -50px;
+        right: -50px;
+        width: 200px;
+        height: 200px;
+        background-color: rgba(229, 115, 115, 0.1);
+        border-radius: 50%;
+        z-index: 0;
+      }
+      
+      .section-title {
+        position: relative;
+        display: inline-block;
+        margin-bottom: 2.5rem;
+        font-weight: 700;
+        color: var(--text-color);
+        font-size: 2.5rem;
+      }
+      
+      .section-title::after {
+        content: '';
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 3px;
+        background-color: var(--primary-color);
+      }
+      
+      .section-subtitle {
+        max-width: 700px;
+        margin: 0 auto 3rem;
+        text-align: center;
+        color: #666;
+        font-size: 1.1rem;
+        line-height: 1.7;
+      }
+      
+      /* Tarjetas mejoradas */
+      .card {
+        border: none;
+        height: 100%;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        transition: all 0.4s ease;
+      }
+      
       .card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        transform: translateY(-10px);
+        box-shadow: 0 15px 30px rgba(0,0,0,0.15);
       }
+      
       .card-img-container {
-        height: 200px; /* Altura fija para todas las imágenes */
+        height: 250px;
         overflow: hidden;
       }
+      
       .card-img-top {
         width: 100%;
         height: 100%;
-        object-fit: cover; /* Mantiene la proporción y cubre el contenedor */
+        object-fit: cover;
+        transition: transform 0.8s ease;
       }
+      
+      .card:hover .card-img-top {
+        transform: scale(1.05);
+      }
+      
+      .card-body {
+        padding: 1.5rem;
+        background-color: #fff;
+      }
+      
+      .card-title {
+        color: var(--primary-color);
+        font-weight: 600;
+        margin-bottom: 1rem;
+        font-size: 1.3rem;
+      }
+      
+      .card-text {
+        color: #666;
+        line-height: 1.6;
+      }
+      
       .card-container {
-        max-width: 300px; /* Ancho máximo para las tarjetas */
-        margin: 0 auto; /* Centra las tarjetas en su columna */
+        max-width: 350px;
+        margin: 0 auto;
+      }
+      
+      /* Estilo para la descripción del plato */
+      .plato-descripcion {
+        font-size: 0.95rem;
+        color: #666;
+        margin-bottom: 1rem;
+      }
+      
+      /* Estilo para el precio */
+      .plato-precio {
+        font-weight: 700;
+        color: var(--primary-color);
+        font-size: 1.1rem;
+      }
+      
+      /* Sección contacto mejorada */
+      .contact-section {
+        padding: 4rem 0;
+        background: linear-gradient(to right, var(--light-bg), #fff);
+        position: relative;
+      }
+      
+      .contact-section::before {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23e57373' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
+        opacity: 0.5;
+      }
+      
+      .contact-content {
+        position: relative;
+        z-index: 1;
+      }
+      
+      .contact-title {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+        color: var(--text-color);
+      }
+      
+      .contact-subtitle {
+        font-size: 1.2rem;
+        margin-bottom: 2rem;
+        color: #666;
+      }
+      
+      .social-button {
+        padding: 12px 24px;
+        border-radius: 50px;
+        margin: 0 10px;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        display: inline-flex;
+        align-items: center;
+      }
+      
+      .btn-whatsapp {
+        background-color: #25D366;
+        color: white;
+      }
+      
+      .btn-whatsapp:hover {
+        background-color: #128C7E;
+        color: white;
+        transform: translateY(-3px);
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      }
+      
+      .btn-instagram {
+        background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+        color: white;
+      }
+      
+      .btn-instagram:hover {
+        opacity: 0.9;
+        color: white;
+        transform: translateY(-3px);
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      }
+      
+      .icon-left {
+        margin-right: 8px;
+      }
+      
+      /* Footer mejorado */
+      footer {
+        background-color: var(--dark-bg);
+        color: white;
+        padding: 2rem 0 1rem;
+      }
+      
+      .footer-info {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 1.5rem;
+      }
+      
+      .footer-logo {
+        font-family: 'Playfair Display', serif;
+        font-weight: 700;
+        font-size: 1.8rem;
+        color: white;
+        margin-right: 1rem;
+      }
+      
+      .footer-address {
+        font-size: 1rem;
+        opacity: 0.8;
+      }
+      
+      .footer-divider {
+        width: 80%;
+        margin: 1rem auto;
+        border-color: rgba(255,255,255,0.1);
+      }
+      
+      .footer-copyright {
+        opacity: 0.7;
+        font-size: 0.9rem;
+      }
+      
+      /* Responsive */
+      @media (max-width: 992px) {
+        .hero-title {
+          font-size: 2.5rem;
+        }
+        
+        .hero-subtitle {
+          font-size: 1.2rem;
+        }
+      }
+      
+      @media (max-width: 768px) {
+        .hero-section {
+          height: 300px;
+        }
+        
+        .hero-title {
+          font-size: 2rem;
+        }
+        
+        .social-button {
+          margin: 5px;
+        }
+        
+        .card-container {
+          max-width: 300px;
+        }
+      }
+      
+      @media (max-width: 576px) {
+        .hero-section {
+          height: 250px;
+        }
+        
+        .hero-title {
+          font-size: 1.8rem;
+        }
+        
+        .hero-subtitle {
+          font-size: 1rem;
+        }
       }
     </style>
   </head>
   <body>
+    <!-- Navbar -->
     <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top">
       <div class="container">
         <a class="navbar-brand" href="./index.html">La Barraca</a>
@@ -65,19 +401,18 @@
           <div class="offcanvas-body">
             <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="./index.html">Quienes somos?</a>
+                <a class="nav-link" href="./index.html">Quienes somos</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#seccion-destino">Contacto</a>
+                <a class="nav-link" href="#contacto">Contacto</a>
               </li>
               <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Fotos
+                <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Galería
                 </a>
                 <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="./platos.html">Algunos platos</a></li>
-                  <li><a class="dropdown-item" href="nuestro-salon.html">Nuestro salón</a></li>
-                  
+                  <li><a class="dropdown-item active" href="./platos.html">Nuestros platos</a></li>
+                  <li><a class="dropdown-item" href="./nuestro-salon.html">Nuestro salón</a></li>
                   <li>
                     <hr class="dropdown-divider">
                   </li>
@@ -90,67 +425,114 @@
       </div>
     </nav>
     
-      <main>
-        <section id="speakers" class="mt-5 mb-4">
-          <div class="container">
-              <div class="row mb-4">
-                  <div class="col text-center text-uppercase">
-                      <h3>Algunos platos</h3>
-                  </div>
-              </div>
-              
-              <div class="row justify-content-center">
-                  <!-- Primera tarjeta -->
-                  <div class="col-sm-12 col-md-6 col-lg-4 mb-4">
-                    <div class="card-container">
-                      <div class="card">
-                          <div class="card-img-container">
-                            <img src="./Imagenes/WhatsApp Image 2025-04-24 at 20.35.50.jpeg" class="card-img-top" alt="imagen">
-                          </div>
-                          <div class="card-body">
-                              <h5 class="card-title">---------*-*-*-</h5>
-                              <p class="card-text">mfklandflhjadh</p>
-                          </div>
-                      </div>
-                    </div>
-                  </div>
-                  
-                  <!-- Segunda tarjeta -->
-                  <div class="col-sm-12 col-md-6 col-lg-4 mb-4">
-                    <div class="card-container">
-                      <div class="card">
-                          <div class="card-img-container">
-                            <img src="./Imagenes/WhatsApp Image 2025-04-24 at 20.35.46.jpeg" class="card-img-top" alt="imagen">
-                          </div>
-                          <div class="card-body">
-                              <h5 class="card-title">---------*-*-*-</h5>
-                              <p class="card-text">mfklandflhjadh</p>
-                          </div>
-                      </div>
-                    </div>
-                  </div>
-                  
-                  <!-- Tercera tarjeta -->
-                  <div class="col-sm-12 col-md-6 col-lg-4 mb-4">
-                    <div class="card-container">
-                      <div class="card">
-                          <div class="card-img-container">
-                            <img src="./Imagenes/WhatsApp Image 2025-04-24 at 20.37.12.jpeg" class="card-img-top" alt="imagen">
-                          </div>
-                          <div class="card-body">
-                              <h5 class="card-title">---------*-*-*-</h5>
-                              <p class="card-text">mfklandflhjadh</p>
-                          </div>
-                      </div>
-                    </div>
-                  </div>
-              </div>
+    <main>
+      <!-- Hero Section -->
+      <section class="hero-section">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+          <h1 class="hero-title">Nuestros Platos</h1>
+          <p class="hero-subtitle">Descubre la excelencia gastronómica de Entre Ríos</p>
+        </div>
+      </section>
+      
+      <!-- Sección de Platos -->
+      <section id="nuestros-platos" class="platos-section">
+        <div class="container">
+          <div class="row">
+            <div class="col-12 text-center">
+              <h2 class="section-title">Sabores De La Casa</h2>
+              <p class="section-subtitle">Te presentamos algunas de nuestras especialidades preparadas con ingredientes de la más alta calidad y el sabor único de nuestra cocina tradicional</p>
+            </div>
           </div>
-        </section>
-      </main>
+            
+          <div class="row justify-content-center">
+            <!-- Plato 1 -->
+            <div class="col-sm-12 col-md-6 col-lg-4 mb-4">
+              <div class="card-container">
+                <div class="card">
+                  <div class="card-img-container">
+                    <img src="./Imagenes/WhatsApp Image 2025-05-21 at 20.10.56.jpeg" class="card-img-top" alt="Milanesa con puré">
+                  </div>
+                  <div class="card-body">
+                    <h5 class="card-title">Milanesa Napolitana</h5>
+                    <p class="card-text plato-descripcion">Exquisita milanesa casera cubierta con nuestra salsa de tomate, jamón y queso, acompañada de papas fritas.</p>
+                    <p class="plato-precio">$13.000</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+                
+            <!-- Plato 2 -->
+            <div class="col-sm-12 col-md-6 col-lg-4 mb-4">
+              <div class="card-container">
+                <div class="card">
+                  <div class="card-img-container">
+                    <img src="./Imagenes/WhatsApp Image 2025-05-21 at 20.10.35.jpeg" class="card-img-top" alt="Parrillada completa">
+                  </div>
+                  <div class="card-body">
+                    <h5 class="card-title">Hamburpizza</h5>
+                    <p class="card-text plato-descripcion">Ideal para compartir!! Pizza rellena con un medallón de hamburguesa casera y queso mozzarella, cubierta de salsa, queso mozzarella, panceta y huevos fritos, acompañada por papas fritas con cheddar</p>
+                    <p class="plato-precio">$20.000</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+                
+            <!-- Plato 3 -->
+            <div class="col-sm-12 col-md-6 col-lg-4 mb-4">
+              <div class="card-container">
+                <div class="card">
+                  <div class="card-img-container">
+                    <img src="./Imagenes/WhatsApp Image 2025-04-24 at 20.37.13 (1).jpeg" class="card-img-top" alt="Pasta casera">
+                  </div>
+                  <div class="card-body">
+                    <h5 class="card-title">Raviolones Caseros</h5>
+                    <p class="card-text plato-descripcion">Pasta elaborada artesanalmente en nuestra cocina, con salsa bolognesa preparada con ingredientes frescos.</p>
+                    <p class="plato-precio">$10.000</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row mt-4">
+            <div class="col text-center">
+              <p class="fst-italic">* Los precios pueden variar. Consulte con nuestro personal por promociones especiales.</p>
+              <a href="#" class="btn btn-outline-dark mt-3">Ver menú completo</a>
+            </div>
+          </div>
+        </div>
+      </section>
       
-      <footer>Ruta Nacional Nº14 - KM156 - San José - Entre Ríos</footer>
+      <!-- Sección Contacto -->
+      <section id="contacto" class="contact-section">
+        <div class="container contact-content">
+          <div class="text-center">
+            <h2 class="contact-title">¿Te gustaría probar nuestros platos?</h2>
+            <p class="contact-subtitle">Reserva tu mesa o consulta por nuestros servicios para eventos</p>
+            <div class="mt-4">
+              <a href="https://wa.me/c/5493447513979" class="btn social-button btn-whatsapp">
+                <i class="fab fa-whatsapp icon-left"></i> Reservar mesa
+              </a>
+              <a href="https://www.instagram.com/__labarraca__?igsh=amgxaDhpc212dWlw" class="btn social-button btn-instagram">
+                <i class="fab fa-instagram icon-left"></i> Seguinos en Instagram
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    
+    <footer>
+      <div class="container">
+        <div class="footer-info">
+          <div class="footer-logo">La Barraca</div>
+          <div class="footer-address">Ruta Nacional Nº14 - KM156 - San José - Entre Ríos</div>
+        </div>
+        <hr class="footer-divider">
+        <p class="footer-copyright text-center">© 2025 La Barraca - Todos los derechos reservados</p>
+      </div>
+    </footer>
       
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
   </body>
 </html>
